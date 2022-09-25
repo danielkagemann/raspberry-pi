@@ -46,6 +46,17 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install apache2 -y
 ```
 
+now prepare for building dashboard and homekit accessories with node.
+
+```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+
+# maybe run the export statement displayed in the console
+
+nvm install v18.9.0
+```
+
+
 ### dashboard installation
 
 ```
@@ -82,7 +93,7 @@ and add the following lines to it.
 @xset -dpms
 @xset s noblank
 # start chromium fullscreen in icognito and kiosk mode
-@chromium-browser --incognito --kiosk http://localhost
+@chromium-browser --incognito --kiosk http://localhost?portrait=1
 ```
 
 ###
