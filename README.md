@@ -27,7 +27,6 @@ ssh pi@mini.local
 ```
 
 ![ssh](./screens/ssh.png)
-
 ### mini.local required packages
 
 install chromium browser (might be already installed)
@@ -49,8 +48,14 @@ sudo apt install apache2 -y
 
 ### dashboard installation
 
-clone repository if it exits sometime and then just build the stuff. 
-copy the content of the build folder to /var/www/html.
+```
+cd ~
+git clone https://github.com/danielkagemann/raspberry-dashboard.git
+cd raspberry-dashboard
+yarn install
+yarn build
+yarn deploy
+```
 
 Open browser and type http://mini.local
 
@@ -58,6 +63,7 @@ you should see the dashboard
 
 ![](./screens/browser.png)
 
+Use portrait mode by adding `?portrait=1` to the url.
 
 ### prepare autostart
 
@@ -79,7 +85,20 @@ and add the following lines to it.
 @chromium-browser --incognito --kiosk http://localhost
 ```
 
+###
+
 ## comming soon...
 
 - homekit at home 
 - alerts in dashboard from virtual homekit
+
+
+## Troubleshooting
+
+Please ensure that the network is 2,4Ghz.
+
+If you still can connect via ssh you can use the commandline tool
+
+```
+sudo raspi-config
+``
