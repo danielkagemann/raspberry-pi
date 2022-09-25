@@ -12,6 +12,8 @@ https://www.raspberrypi.com/software/
 If all is okay just click on write and wait...
 
 ![imager](./screens/imager.png)
+
+  
 ![settings](./screens/settings.png)
 
 Now the card is prepared so just put it into your pi and turn it on.
@@ -73,6 +75,11 @@ and add the following lines to it.
 @xset s off
 @xset -dpms
 @xset s noblank
-# startet Chromium im vollbild und incognito Modus 
+# start chromium fullscreen in icognito and kiosk mode
 @chromium-browser --incognito --kiosk http://localhost
 ```
+
+## comming soon...
+
+- homekit at home 
+- alerts in dashboard from virtual homekit
