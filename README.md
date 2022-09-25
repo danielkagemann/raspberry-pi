@@ -104,7 +104,7 @@ Prepare the storage folder
 
 ```bash
 mkdir /homekit
-sudo chmod 777 /homkit
+sudo chmod 777 /homekit
 ```
 
 ```bash
@@ -134,7 +134,7 @@ Add to autostart
 
 ```bash
 sudo nano /etc/rc.local
-HAPSTORAGE=/homekit node /homekit/athome.js&
+(cd /homekit; node athome.js > /homekit/athome.log &)
 ```
 
 Now you should be able to add this Switch to your homekit environment via PIN code.
