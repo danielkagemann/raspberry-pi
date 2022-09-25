@@ -96,7 +96,49 @@ and add the following lines to it.
 @chromium-browser --incognito --kiosk http://localhost?portrait=1
 ```
 
-###
+## virtual homekit accessories
+
+### hk-athome
+
+Prepare the storage folder
+
+```bash
+mkdir /homekit
+sudo chmod 777 /homkit
+```
+
+```bash
+git clone https://github.com/danielkagemann/hk-athome.git
+```
+
+Go to the project directory
+
+```bash
+cd hk-athome
+```
+
+Install dependencies
+
+```bash
+yarn install
+```
+
+Build and deploy to /homekit. This copies all data to /homekit.
+
+```bash
+yarn build
+yarn deploy
+```
+
+Add to autostart
+
+```bash
+sudo nano /etc/rc.local
+HAPSTORAGE=/homekit node /homekit/athome.js&
+```
+
+Now you should be able to add this Switch to your homekit environment via PIN code.
+Please use code 300-92-008.
 
 ## comming soon...
 
