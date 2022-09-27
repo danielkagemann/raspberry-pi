@@ -40,12 +40,6 @@ install unclutter to get rid of mouse cursor
 sudo apt-get install unclutter
 ```
 
-after that we need apache for webserver support
-```
-sudo apt update && sudo apt upgrade -y
-sudo apt install apache2 -y
-```
-
 now prepare for building dashboard and homekit accessories with node.
 
 ```
@@ -64,8 +58,17 @@ cd ~
 git clone https://github.com/danielkagemann/raspberry-dashboard.git
 cd raspberry-dashboard
 yarn install
-yarn build
-yarn deploy
+cd webserver 
+yarn install
+cd ..
+yarn build:all
+```
+
+Add start of webserver into /etc/rc.local
+
+```
+sudo nano /etc/rc.local
+(cd /home/pi/raspberry-dashboard/webserver/build; node index.js&)
 ```
 
 Open browser and type http://mini.local
@@ -93,7 +96,7 @@ and add the following lines to it.
 @xset -dpms
 @xset s noblank
 # start chromium fullscreen in icognito and kiosk mode
-@chromium-browser --incognito --kiosk http://localhost?portrait=1
+@chromium-browser --incognito --kiosk http://localhost:8080?portrait=1
 ```
 
 ## virtual homekit accessories
