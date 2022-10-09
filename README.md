@@ -143,11 +143,23 @@ sudo nano /etc/rc.local
 Now you should be able to add this Switch to your homekit environment via PIN code.
 Please use code 300-92-008.
 
-## comming soon...
+## alerts
 
-- homekit at home 
-- alerts in dashboard from virtual homekit
+you can show alerts by just sending a request. it does not matter 
+if the request is send by automation or manually.
 
+```
+POST http://mini.local:8080/v1/message
+Content-Type: application/x-www-form-urlencoded
+type=<typeofmessage>&message=<text>
+```
+where typeofmessage can be error, info or dark
+
+e.g. via curl
+
+```bash
+curl -X POST http://mini.local:8080/v1/message -H "Content-Type: application/x-www-form-urlencoded" -d "type=info&message=hi"
+```
 
 ## Troubleshooting
 
