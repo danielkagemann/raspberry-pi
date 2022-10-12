@@ -170,3 +170,31 @@ If you still can connect via ssh you can use the commandline tool
 ```
 sudo raspi-config
 ``
+
+If you have problems with chromium and white or blank page you can install firefox which also has kiosk support.
+
+```bash
+sudo apt update
+sudo apt-install firefox-esr -y
+
+sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
+```
+
+add the following line instead of chromium call
+
+```
+@firefox-esr --private-window --kiosk http://
+localhost:8080?portrait=1
+```
+
+To be able to send keystrokes via ssh without keyboard you can install
+
+```bash
+sudo apt install xdotool -y
+```
+
+To make a refresh call
+
+```bash
+DISPLAY=:0 xdotool key "ctrl+F5"
+```
